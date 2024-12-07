@@ -1,46 +1,66 @@
+////package com.programmingcodez.productservice.dto;
+////
+////import com.programmingcodez.productservice.entity.Product;
+////import lombok.AllArgsConstructor;
+////import lombok.Builder;
+////import lombok.Data;
+////import lombok.NoArgsConstructor;
+////
+////import java.math.BigDecimal;
+////
+////@Data
+////@Builder
+////@AllArgsConstructor
+////@NoArgsConstructor
+////public class ProductResponse {
+////    private String skucode;
+////    private String name;
+////    private String description;
+////    private BigDecimal price;
+////    private String category;
+////    private String imageURl;
+////    // Product type to differentiate products units vs weight
+////    private Product.ProductType type;
+////}
+//
 //package com.programmingcodez.productservice.dto;
 //
 //import com.programmingcodez.productservice.entity.Product;
-//import lombok.AllArgsConstructor;
 //import lombok.Builder;
-//import lombok.Data;
-//import lombok.NoArgsConstructor;
+//import lombok.Getter;
+//import lombok.Setter;
 //
 //import java.math.BigDecimal;
 //
-//@Data
 //@Builder
-//@AllArgsConstructor
-//@NoArgsConstructor
+//@Setter
+//@Getter
 //public class ProductResponse {
-//    private String skucode;
+//    private String skuCode;
 //    private String name;
+//    private String imageUrl;
 //    private String description;
 //    private BigDecimal price;
 //    private String category;
-//    private String imageURl;
-//    // Product type to differentiate products units vs weight
 //    private Product.ProductType type;
 //}
-
 package com.programmingcodez.productservice.dto;
 
-import com.programmingcodez.productservice.entity.Product;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import com.programmingcodez.productservice.entity.Product.ProductType;
+import lombok.*;
 
 import java.math.BigDecimal;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
-@Setter
-@Getter
+@Data
 public class ProductResponse {
     private String skuCode;
-    private String productName;
-    private String imageUrl;
+    private String name;
     private String description;
     private BigDecimal price;
     private String category;
-    private Product.ProductType type;
+    private String imageUrl;
+    private ProductType type;
 }

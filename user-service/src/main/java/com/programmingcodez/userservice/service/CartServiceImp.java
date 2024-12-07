@@ -37,7 +37,7 @@ public class CartServiceImp implements CartService {
              //check if the stock is available
             Boolean isAvailable = webClientBuilder.build()
                     .post()
-                    .uri("http://localhost:8084/api/inventory/checkItem")
+                    .uri("http://localhost:8085/api/inventory/checkItem")
                     .bodyValue(inventoryRequest)
                     .retrieve()
                     .bodyToMono(Boolean.class)
