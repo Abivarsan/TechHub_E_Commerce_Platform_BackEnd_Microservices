@@ -20,5 +20,4 @@ public class ViewOrdersDto {
     private Timestamp timestamp;
     private Order.TrackingStatus trackingStatus;
 
-
 }

@@ -3,6 +3,7 @@ package com.programmingcodez.orderservice.controller;
 import com.programmingcodez.orderservice.dto.*;
 import com.programmingcodez.orderservice.exception.ItemsNotInStockException;
 import com.programmingcodez.orderservice.service.OrderService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,8 @@ public class OrderController {
 
     @PostMapping("{username}")
     public ResponseEntity<?> placeOrder(@RequestBody OrderRequest orderRequest,@PathVariable("username") String username) {
+
+//        System.out.println("name is: " + username);
         try {
             InventoryUpdateRequestDto inventoryUpdateRequestDto = orderService.placeOrder(orderRequest,username);
             return ResponseEntity.ok(inventoryUpdateRequestDto); // Return the order ID if successful
@@ -46,7 +49,7 @@ public class OrderController {
             orderService.removeOrder(completeRequestDto.getInventoryUpdateRequest().getOrderID());
             String rollBackInventory= webClientBuilder.build()
                     .put()
-                    .uri("http://inventory-service/api/inventory/roll-back")
+                    .uri("http://localhost:8085/api/inventory/roll-back")
                     .bodyValue(completeRequestDto.getInventoryUpdateRequest().getInventoryRequests())
                     .retrieve()
                     .bodyToMono(String.class)
@@ -65,3 +68,5 @@ public class OrderController {
         return this.orderService.updateTrackingStatus(trackingInfo);
     }
 }
+
+
