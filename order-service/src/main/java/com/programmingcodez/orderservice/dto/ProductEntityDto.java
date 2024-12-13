@@ -17,5 +17,4 @@ public class ProductEntityDto {
     private BigDecimal price;
     private String category;
     private String imageURl;
-
 }
