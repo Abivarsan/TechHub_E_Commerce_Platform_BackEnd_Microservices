@@ -35,7 +35,7 @@ public class UserController {
 
     @GetMapping("/checkUser/{userName}")
     public ResponseEntity<Boolean> checkUser(@PathVariable String userName){
-        Boolean result=this.userService.checkUser(userName);
+        Boolean result = this.userService.checkUser(userName);
         return new ResponseEntity<>(this.userService.checkUser(userName), HttpStatus.OK);
     }
 
